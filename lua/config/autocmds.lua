@@ -3,7 +3,7 @@
 -- Add any additional autocmds here
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "c", "cpp", "h", "hpp", "cmake", "sh", "bash" },
+  pattern = { "c", "cpp", "h", "hpp", "cmake" },
   callback = function()
     vim.b.autoformat = false
   end,
