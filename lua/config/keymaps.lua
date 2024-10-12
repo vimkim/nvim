@@ -41,3 +41,27 @@ map("n", ";", ":", {})
 map("", "<leader>mo", "<ESC>:set nu! mouse=<CR>", {})
 
 map("", "<space>gb", ":Git blame<CR>", {})
+
+-- print current file path
+function PrintCurrentFilePath()
+  local file_path = vim.fn.expand("%:p") -- Get the full file path
+  print(file_path) -- Print it in the command line
+end
+
+vim.api.nvim_create_user_command("PrintFilePath", function()
+  PrintCurrentFilePath()
+end, {})
+
+vim.api.nvim_set_keymap("n", "<leader>pf", ":lua PrintCurrentFilePath()<CR>", { noremap = true, silent = true })
+
+-- Function to change cwd to the current buffer's directory
+function ChangeCwdToCurrentFile()
+  local file_dir = vim.fn.expand("%:p:h") -- Get the directory of the current file
+  vim.cmd("cd " .. file_dir) -- Change the working directory to that directory
+end
+
+vim.api.nvim_create_user_command("ChangeCwd", function()
+  ChangeCwdToCurrentFile()
+end, {})
+
+vim.api.nvim_set_keymap("n", "<leader>cd", ":lua ChangeCwdToCurrentFile()<CR>", { noremap = true, silent = true })
