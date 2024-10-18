@@ -16,6 +16,7 @@ return {
           fish = { "fish_indent" },
           sh = { "shfmt" },
           zsh = { "beautysh" },
+          rst = { "rstfmt" },
 
           -- markdown
           markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
