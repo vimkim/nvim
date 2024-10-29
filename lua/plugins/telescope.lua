@@ -42,7 +42,12 @@ return {
       {
         "<leader>/",
         "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-        desc = "Grep (root dir)",
+        desc = "Grep (root dir) with args",
+      },
+      {
+        "<leader>sg",
+        "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+        desc = "Grep (root dir) with args",
       },
     },
     config = function(_, opts)
