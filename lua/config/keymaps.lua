@@ -68,3 +68,11 @@ vim.api.nvim_create_user_command("ChangeCwd", function()
 end, {})
 
 vim.api.nvim_set_keymap("n", "<leader>cd", ":lua ChangeCwdToCurrentFile()<CR>", { noremap = true, silent = true })
+
+-- for gdb breakpoints
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>dx",
+  ':let @+="b " . expand("%") . ":" . line(".")<CR>',
+  { noremap = true, silent = true }
+)
