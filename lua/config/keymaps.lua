@@ -86,3 +86,10 @@ vim.api.nvim_set_keymap("n", "<leader>^", ":BufferLineGoToBuffer 6<CR>", { norem
 vim.api.nvim_set_keymap("n", "<leader>&", ":BufferLineGoToBuffer 7<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>*", ":BufferLineGoToBuffer 8<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>(", ":BufferLineGoToBuffer 9<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap(
+  "n",
+  "gf",
+  ":lua require('telescope.builtin').find_files({ default_text = vim.fn.expand('<cfile>') })<CR>",
+  { noremap = true, silent = true }
+)
