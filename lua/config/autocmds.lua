@@ -21,3 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.expandtab = false
   end,
 })
+
+vim.filetype.add({
+  extension = { i = "c" },
+})
