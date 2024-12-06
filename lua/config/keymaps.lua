@@ -93,3 +93,10 @@ vim.api.nvim_set_keymap(
   ":lua require('telescope.builtin').find_files({ default_text = vim.fn.expand('<cfile>') })<CR>",
   { noremap = true, silent = true }
 )
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ch",
+  ":Lspsaga outgoing_calls<CR>",
+  { desc = "Lspsaga Outgoing Calls", noremap = true, silent = true }
+)
