@@ -100,3 +100,16 @@ vim.api.nvim_set_keymap(
   ":Lspsaga outgoing_calls<CR>",
   { desc = "Lspsaga Outgoing Calls", noremap = true, silent = true }
 )
+
+-- Create a custom behavior for gd in Yacc files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "yacc", -- FileType for yacc files
+  callback = function()
+    -- Map gd to search for the word under the cursor prefixed by ^
+    vim.keymap.set("n", "gd", function()
+      local word = vim.fn.expand("<cword>") -- Get the word under the cursor
+      vim.cmd("normal! m'") -- Save current position to the jumpluist
+      vim.fn.search("^" .. word .. "\\n\\+") -- Search for the word with ^ in front
+    end, { buffer = true, desc = "Custom gd for Yacc files" }) -- Set for the buffer only
+  end,
+})
