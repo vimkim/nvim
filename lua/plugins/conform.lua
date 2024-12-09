@@ -1,3 +1,6 @@
+-- stylua: ignore
+if false then return {} end
+
 return {
   {
     "stevearc/conform.nvim",
@@ -14,7 +17,7 @@ return {
         sh = { "shfmt" },
         zsh = { "beautysh" },
         rst = { "rstfmt" },
-
+        just = { "just" },
         -- markdown
         markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
         ["markdown.mdx"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
