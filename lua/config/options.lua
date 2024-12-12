@@ -21,3 +21,12 @@ if is_x11_forwarding_enabled() then
 else
   opt.clipboard = ""
 end
+
+-- Disable banner in netrw
+vim.g.netrw_banner = 0
+-- Set the listing style
+-- vim.g.netrw_liststyle = 3
+-- Configure window size
+vim.g.netrw_winsize = 25
+vim.g.netrw_browse_split = 0
+-- $HOME/temp/tcpdump-with-go/
