@@ -12,6 +12,7 @@ return {
         zsh = { "beautysh" },
         rst = { "rstfmt" },
         just = { "just" },
+        c = { "clang_format" },
         -- markdown
         markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
         ["markdown.mdx"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
@@ -39,6 +40,9 @@ return {
             end, vim.diagnostic.get(ctx.buf))
             return #diag > 0
           end,
+        },
+        ["clang_format"] = {
+          prepend_args = { "--style={IndentWidth: 4}", "--fallback-style=LLVM" },
         },
       },
     },
