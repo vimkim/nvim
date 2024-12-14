@@ -94,6 +94,9 @@ vim.api.nvim_set_keymap(
   { desc = "Lspsaga Outgoing Calls", noremap = true, silent = true }
 )
 
+-- chezmoi add
+vim.api.nvim_set_keymap("n", "<leader>za", ":!chezmoi add %<CR>", { noremap = true, silent = true })
+
 -- Create a custom behavior for gd in Yacc files
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "yacc", -- FileType for yacc files
