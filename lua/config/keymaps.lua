@@ -39,6 +39,8 @@ map("", "s,", "<ESC>:w<CR>", {})
 map("", ",q", "<ESC>:bd<cr>", {})
 map("", "<c-q>", "<ESC>:qa<cr>", {})
 
+map("n", ";", ":", {})
+
 map("", "<leader>mo", "<ESC>:set nu! mouse=<CR>", {})
 
 map("", "<space>gb", ":Git blame<CR>", {})
