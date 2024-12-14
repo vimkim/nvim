@@ -5,12 +5,6 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
-      default_format_opts = {
-        timeout_ms = 3000,
-        async = false, -- not recommended to change
-        quiet = false, -- not recommended to change
-        lsp_format = "fallback", -- not recommended to change
-      },
       formatters_by_ft = {
         lua = { "stylua" },
         fish = { "fish_indent" },
@@ -46,17 +40,6 @@ return {
             return #diag > 0
           end,
         },
-        -- # Example of using dprint only when a dprint.json file is present
-        -- dprint = {
-        --   condition = function(ctx)
-        --     return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
-        --   end,
-        -- },
-        --
-        -- # Example of using shfmt with extra args
-        -- shfmt = {
-        --   prepend_args = { "-i", "2", "-ci" },
-        -- },
       },
     },
   },
