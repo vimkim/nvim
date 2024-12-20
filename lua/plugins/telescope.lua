@@ -33,8 +33,14 @@ return {
       }
       opts.defaults = {
         layout_config = {
-          height = 0.95,
-          width = 0.98,
+          width = 0.999, -- Make the overall layout take 90% of the screen width
+          height = 0.999, -- Make the overall layout take 90% of the screen height
+          vertical = {
+            preview_height = 0.7, -- Increase the preview height for vertical strategy
+          },
+          horizontal = {
+            preview_width = 0.6, -- Increase preview width for horizontal strategy
+          },
         },
       }
     end,
