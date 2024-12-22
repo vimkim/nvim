@@ -6,6 +6,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
+        kdl = { "kdlfmt" },
         lua = { "stylua" },
         fish = { "fish_indent" },
         sh = { "shfmt" },
