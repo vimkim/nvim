@@ -36,3 +36,11 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4 -- Number of spaces for each step of indentation
 vim.opt.softtabstop = 4 -- Number of spaces a <Tab> counts for when editing
 -- vim.opt.expandtab = true -- (default: true) Use spaces instead of tabs
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.iskeyword:remove("_")
+    vim.opt_local.iskeyword:remove("-")
+  end,
+})
