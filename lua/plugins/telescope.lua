@@ -1,4 +1,9 @@
 -- https://www.reddit.com/r/neovim/comments/11wmzlz/telescope_window_width_in_lunarvim/
+
+if true then
+  return {}
+end
+
 return {
   {
     "telescope.nvim",
