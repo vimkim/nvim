@@ -2,7 +2,11 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     config = function()
-      require("lspsaga").setup({})
+      require("lspsaga").setup({
+        lightbulb = {
+          enable = false,
+        },
+      })
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
