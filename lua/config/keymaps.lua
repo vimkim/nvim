@@ -11,7 +11,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- create new file with path under cursor
-vim.api.nvim_set_keymap("n", "<leader>gf", ":e <C-R><C-F><CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fn", ":e <C-R><C-F><CR>", { noremap = true, silent = true })
 
 -- colemak keybindings
 
