@@ -48,3 +48,5 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.langmap =
   "ㅁa,ㅠb,ㅊc,ㅇd,ㄷe,ㄹf,ㅎg,ㅗh,ㅑi,ㅓj,ㅏk,ㅣl,ㅡm,ㅜn,ㅐo,ㅔp,ㅂq,ㄱr,ㄴs,ㅅt,ㅕu,ㅍv,ㅈw,ㅌx,ㅛy,ㅋz"
 vim.opt.splitright = true
+
+vim.opt.relativenumber = false
