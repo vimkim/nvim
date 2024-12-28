@@ -40,7 +40,7 @@ vim.opt.softtabstop = 4 -- Number of spaces a <Tab> counts for when editing
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
-    vim.opt_local.iskeyword:remove("_")
+    -- vim.opt_local.iskeyword:remove("_")
     vim.opt_local.iskeyword:remove("-")
   end,
 })
