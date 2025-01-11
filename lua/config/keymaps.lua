@@ -105,3 +105,29 @@ vim.api.nvim_create_autocmd("FileType", {
     end, { buffer = true, desc = "Custom gd for Yacc files" }) -- Set for the buffer only
   end,
 })
+
+local fzf = require("fzf-lua")
+
+function git_modified_chunks()
+  -- Run `git diff` and capture the output
+  fzf.fzf_exec(
+    "git-chunk.sh", -- You can tweak flags as needed
+    {
+      preview = "bat --style=numbers --color=always --line-range=$(echo {2}-10 | bc):$(echo {2}+10 | bc) {1}", -- Display the diff chunk in the preview
+      actions = {
+        ["enter"] = function(selected)
+          local file, line = selected[1]:match("^(.-)%s+(%d+)$")
+          if file and line then
+            vim.cmd(string.format("edit %s", file))
+            vim.cmd(string.format(":%s", line))
+          else
+            print("Invalid selection format. Expected 'filename.txt linenumber'.")
+          end
+        end,
+      },
+    }
+  )
+end
+
+-- Map the function to a keybinding in Neovim
+vim.api.nvim_set_keymap("n", "<leader>gm", ":lua git_modified_chunks()<CR>", { noremap = true, silent = true })
