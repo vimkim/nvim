@@ -109,25 +109,34 @@ vim.api.nvim_create_autocmd("FileType", {
 local fzf = require("fzf-lua")
 
 function git_modified_chunks()
-  -- Run `git diff` and capture the output
+  local fzf = require("fzf-lua")
+
   fzf.fzf_exec(
-    "git-chunk.sh", -- You can tweak flags as needed
+    [[git diff | diff2html -i stdin -f json -o stdout | jq -r '.[] | .newName as $fname | .blocks[] | .lines[] | select(.newNumber != null) | "\($fname):\(.newNumber):\(.content)"']],
     {
-      preview = "bat --style=numbers --color=always --line-range=$(echo {2}-10 | bc):$(echo {2}+10 | bc) {1}", -- Display the diff chunk in the preview
+      fzf_opts = {
+        ["--delimiter"] = ":",
+        ["--preview"] = [[
+          file=$(echo {} | cut -d: -f1);
+          lineno=$(echo {} | cut -d: -f2);
+          start=$((lineno > 10 ? lineno - 10 : 1));
+          bat --style=numbers --color=always --highlight-line $lineno \
+              --line-range $start:+40 "$file"
+        ]],
+      },
       actions = {
-        ["enter"] = function(selected)
-          local file, line = selected[1]:match("^(.-)%s+(%d+)$")
-          if file and line then
-            vim.cmd(string.format("edit %s", file))
-            vim.cmd(string.format(":%s", line))
-          else
-            print("Invalid selection format. Expected 'filename.txt linenumber'.")
-          end
+        ["default"] = function(selected)
+          -- Parse the colon-separated line
+          local parts = vim.split(selected[1], ":", { plain = true })
+          local filename = parts[1]
+          local line_number = tonumber(parts[2])
+
+          vim.cmd(string.format("edit %s", filename))
+          vim.cmd(string.format(":%d", line_number))
         end,
       },
     }
   )
 end
 
--- Map the function to a keybinding in Neovim
 vim.api.nvim_set_keymap("n", "<leader>gm", ":lua git_modified_chunks()<CR>", { noremap = true, silent = true })
