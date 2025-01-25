@@ -22,6 +22,7 @@ return { ---@type LazySpec
         "<cmd>Yazi toggle<cr>",
         desc = "Resume the last yazi session",
       },
+      -- NOTE: <c-\> is changing the working directory based on yazi
     },
     ---@type YaziConfig
     opts = {
