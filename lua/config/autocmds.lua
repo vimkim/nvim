@@ -21,5 +21,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.expandtab = false
   end,
 })
-
-require("bookmarks_vimkim")
