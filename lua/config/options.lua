@@ -15,8 +15,11 @@ local function is_x11_forwarding_enabled()
   return result:match("enabled")
 end
 
+-- Detect if the OS is Windows
+local is_windows = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1
+
 -- Configure clipboard based on X11 forwarding
-if is_x11_forwarding_enabled() then
+if is_windows or is_x11_forwarding_enabled() then
   opt.clipboard = "unnamedplus"
 else
   opt.clipboard = ""
