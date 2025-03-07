@@ -31,6 +31,13 @@ return {
         end,
         desc = "Search current buffer for word under cursor",
       },
+      {
+        "<leader>sh",
+        function()
+          require("fzf-lua").search_history()
+        end,
+        desc = "Search search history",
+      },
     },
   },
 }
