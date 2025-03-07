@@ -100,7 +100,7 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Map gd to search for the word under the cursor prefixed by ^
     vim.keymap.set("n", "gd", function()
       local word = vim.fn.expand("<cword>") -- Get the word under the cursor
-      vim.cmd("normal! m'") -- Save current position to the jumpluist
+      vim.cmd("normal! m'") -- Save current position to the jumplist
       vim.fn.search("^" .. word .. "\\n\\+") -- Search for the word with ^ in front
     end, { buffer = true, desc = "Custom gd for Yacc files" }) -- Set for the buffer only
   end,
