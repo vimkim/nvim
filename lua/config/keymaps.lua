@@ -42,16 +42,17 @@ map("", "<c-q>", "<ESC>:qa<cr>", {})
 map("n", ";", ":", {})
 
 -- print current file path
-function PrintCurrentFilePath()
-  local file_path = vim.fn.expand("%:p") -- Get the full file path
-  print(file_path) -- Print it in the command line
+function PrintCurrentDirPath()
+  local dir_path = vim.fn.expand("%:p:h") -- Get the full file path
+  print(dir_path) -- Print it in the command line
 end
 
-vim.api.nvim_create_user_command("PrintFilePath", function()
-  PrintCurrentFilePath()
+vim.api.nvim_create_user_command("PrintDirPath", function()
+  PrintCurrentDirPath()
 end, {})
 
-vim.api.nvim_set_keymap("n", "<leader>pf", ":lua PrintCurrentFilePath()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>pwd", ":pwd<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>pfd", ":lua PrintCurrentDirPath()<CR>", { noremap = true, silent = true })
 
 -- Function to change cwd to the current buffer's directory
 function ChangeCwdToCurrentFile()
@@ -63,7 +64,12 @@ vim.api.nvim_create_user_command("ChangeCwd", function()
   ChangeCwdToCurrentFile()
 end, {})
 
--- vim.api.nvim_set_keymap("n", "<leader>cd", ":lua ChangeCwdToCurrentFile()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>pf", ":lua ChangeCwdToCurrentFile()<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>pr", function()
+  vim.cmd("cd " .. vim.fn.finddir(".git/..", vim.fn.expand("%:p:h") .. ";"))
+  print("Changed to project root: " .. vim.fn.getcwd())
+end, { desc = "Change to project root directory" })
 
 -- for gdb breakpoints
 vim.api.nvim_set_keymap(
