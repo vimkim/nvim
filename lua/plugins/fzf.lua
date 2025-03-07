@@ -22,5 +22,15 @@ return {
         },
       },
     },
+    keys = {
+      {
+        "<leader>sf",
+        function()
+          -- Use grep_curbuf with the word under the cursor
+          require("fzf-lua").grep_curbuf({ search = vim.fn.expand("<cword>") })
+        end,
+        desc = "Search current buffer for word under cursor",
+      },
+    },
   },
 }
