@@ -18,12 +18,15 @@ end
 -- Detect if the OS is Windows
 local is_windows = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1
 
--- Configure clipboard based on X11 forwarding
-if is_windows or is_x11_forwarding_enabled() then
-  opt.clipboard = "unnamedplus"
-else
-  opt.clipboard = ""
-end
+-- TODO: xset q is too slow
+-- -- Configure clipboard based on X11 forwarding
+-- if is_windows or is_x11_forwarding_enabled() then
+--   opt.clipboard = "unnamedplus"
+-- else
+--   opt.clipboard = ""
+-- end
+
+opt.clipboard = "unnamedplus"
 
 -- Disable banner in netrw
 vim.g.netrw_banner = 0
