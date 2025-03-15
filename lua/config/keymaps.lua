@@ -52,7 +52,7 @@ vim.api.nvim_create_user_command("PrintDirPath", function()
 end, {})
 
 vim.api.nvim_set_keymap("n", "<leader>pwd", ":pwd<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>pd", ":lua PrintCurrentDirPath()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>pfd", ":lua PrintCurrentDirPath()<CR>", { noremap = true, silent = true })
 
 -- Function to change cwd to the current buffer's directory
 function ChangeCwdToCurrentFile()
