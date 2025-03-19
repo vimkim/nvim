@@ -56,3 +56,5 @@ vim.opt.langmap =
 vim.opt.splitright = true
 
 vim.opt.relativenumber = false
+
+vim.opt.colorcolumn = "80,120"
