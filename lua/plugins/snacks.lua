@@ -50,6 +50,11 @@ return {
           },
         },
       },
+      picker = {
+        layout = {
+          fullscreen = true,
+        },
+      },
     },
   },
 }
