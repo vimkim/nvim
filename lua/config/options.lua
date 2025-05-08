@@ -58,3 +58,28 @@ vim.opt.splitright = true
 vim.opt.relativenumber = false
 
 vim.opt.colorcolumn = "80,120"
+
+vim.g.root_spec = {
+  "lsp",
+  {
+    ".git",
+    "lua",
+    "justfile",
+    -- c & cpp
+    "CMakeLists.txt",
+    "Makefile",
+    "build.ninja",
+    -- rust
+    "Cargo.toml",
+    -- go
+    "go.mod",
+    -- python
+    "pyproject.toml",
+    -- node
+    "package.json",
+    -- java
+    "build.gradle",
+    "build.gradle.kts",
+  },
+  "cwd",
+}
