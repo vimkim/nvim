@@ -56,5 +56,13 @@ return {
         },
       },
     },
+    keys = {
+      {
+        "<leader>sf",
+        LazyVim.pick("grep_word", { buffers = true }),
+        desc = "Visual selection or word (Buffers)",
+        mode = { "n", "x" },
+      },
+    },
   },
 }
