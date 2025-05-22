@@ -2,6 +2,12 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/bigfile.md
+      bigfile = {
+        -- your bigfile configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
       dashboard = {
         preset = {
           header = [[
