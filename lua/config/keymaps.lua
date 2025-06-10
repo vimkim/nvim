@@ -111,38 +111,3 @@ vim.api.nvim_create_autocmd("FileType", {
     end, { buffer = true, desc = "Custom gd for Yacc files" }) -- Set for the buffer only
   end,
 })
-
-local fzf = require("fzf-lua")
-
-function git_modified_chunks()
-  local fzf = require("fzf-lua")
-
-  fzf.fzf_exec(
-    [[git diff | diff2html -i stdin -f json -o stdout | jq -r '.[] | .newName as $fname | .blocks[] | .lines[] | select(.newNumber != null) | "\($fname):\(.newNumber):\(.content)"']],
-    {
-      fzf_opts = {
-        ["--delimiter"] = ":",
-        ["--preview"] = [[
-          file=$(echo {} | cut -d: -f1);
-          lineno=$(echo {} | cut -d: -f2);
-          start=$((lineno > 10 ? lineno - 10 : 1));
-          bat --style=numbers --color=always --highlight-line $lineno \
-              --line-range $start:+40 "$file"
-        ]],
-      },
-      actions = {
-        ["default"] = function(selected)
-          -- Parse the colon-separated line
-          local parts = vim.split(selected[1], ":", { plain = true })
-          local filename = parts[1]
-          local line_number = tonumber(parts[2])
-
-          vim.cmd(string.format("edit %s", filename))
-          vim.cmd(string.format(":%d", line_number))
-        end,
-      },
-    }
-  )
-end
-
-vim.api.nvim_set_keymap("n", "<leader>gm", ":lua git_modified_chunks()<CR>", { noremap = true, silent = true })
