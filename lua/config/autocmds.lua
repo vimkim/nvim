@@ -22,6 +22,9 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Disable LazyVim auto format
+vim.g.autoformat = false
+
 -- ###################################################
 -- Begin: Disable Netrw and use FZF for directory navigation
 -- ###################################################
