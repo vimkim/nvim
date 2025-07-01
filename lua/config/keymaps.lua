@@ -2,36 +2,37 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+-- local function map(mode, lhs, rhs, opts)
+--   local options = { noremap = true, silent = true }
+--   if opts then
+--     options = vim.tbl_extend("force", options, opts)
+--   end
+--   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+-- end
+
+local map = vim.keymap.set
 
 -- create new file with path under cursor
 vim.api.nvim_set_keymap("n", "<leader>fn", ":e <C-R><C-F><CR>", { noremap = true, silent = true })
 
 -- colemak keybindings
 
-map("", "n", "gj", {})
-map("", "N", "J", {})
-map("", "e", "gk", {})
-map("", "E", "K", {})
-map("", "i", "l", {})
-map("x", "i", "l", {})
-map("", "I", "L", {})
+map("n", "n", "gj", {})
+map("n", "N", "J", {})
+map("n", "e", "gk", {})
+map("n", "E", "K", {})
+map("n", "i", "l", {})
+map("n", "I", "L", {})
 
-map("", "l", "i", {})
-map("", "L", "I", {})
-map("", "k", "n", {})
-map("", "K", "N", {})
-map("", "j", "e", {})
-map("", "J", "E", {})
+map("n", "l", "i", {})
+map("n", "L", "I", {})
+map("n", "k", "n", {})
+map("n", "K", "N", {})
+map("n", "j", "e", {})
+map("n", "J", "E", {})
 
-map("", "gn", "n", {})
-map("", "ge", "e", {})
+map("n", "gn", "n", {})
+map("n", "ge", "e", {})
 
 map("i", ",s", "<ESC>", {})
 map("", ",s", "<ESC>:w<CR>", {})
