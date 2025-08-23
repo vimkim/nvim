@@ -112,3 +112,27 @@ vim.api.nvim_create_autocmd("FileType", {
     end, { buffer = true, desc = "Custom gd for Yacc files" }) -- Set for the buffer only
   end,
 })
+
+-- Define a global variable to track "safe mode"
+vim.g.safe_mode = false
+
+local function enable_safe_mode()
+  vim.g.safe_mode = true
+  -- Disable quitting with Ctrl+Q
+  vim.keymap.set("n", "<C-q>", "<Nop>", { noremap = true, silent = true, desc = "Disable quit in safe mode" })
+  vim.keymap.set("i", "<C-q>", "<Nop>", { noremap = true, silent = true })
+end
+
+local function disable_safe_mode()
+  vim.g.safe_mode = false
+  -- Restore the original quit binding
+  vim.keymap.set("n", "<C-q>", ":q<CR>", { noremap = true, silent = true, desc = "Quit" })
+  vim.keymap.set("i", "<C-q>", "<Esc>:q<CR>", { noremap = true, silent = true })
+end
+
+-- Create commands to toggle
+vim.api.nvim_create_user_command("SafeModeOn", enable_safe_mode, {})
+vim.api.nvim_create_user_command("SafeModeOff", disable_safe_mode, {})
+
+-- Oil
+vim.keymap.set("n", "oi", "<CMD>Oil<CR>", {desc = "Open Oil with file's current directory"})
