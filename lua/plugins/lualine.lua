@@ -86,16 +86,17 @@ return {
           },
           lualine_y = {
             { "progress", separator = " ", padding = { left = 1, right = 0 } },
-            { "location", padding = { left = 0, right = 1 } },
+            { "location", padding = { left = 0, right = 1 }, separator = { right = "" } },
           },
-          lualine_z = {
-            {
-              function()
-                return " " .. os.date("%R")
-              end,
-              separator = { right = "" },
-            },
-          },
+          lualine_z = {},
+          -- lualine_z = {
+          --   {
+          --     function()
+          --       return " " .. os.date("%R")
+          --     end,
+          --     separator = { right = "" },
+          --   },
+          -- },
         },
         extensions = { "neo-tree", "lazy", "fzf" },
       }
