@@ -67,6 +67,7 @@ return {
             hidden = true, -- show dotfiles
             ignored = false, -- also show .gitignored (set true if you don't want that)
             show_empty = true, -- so the UI opens even if results are initially empty
+            follow = true,
           },
           -- optional: make live_grep include hidden too
           grep = { hidden = true, ignored = false },
