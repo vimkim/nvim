@@ -40,7 +40,7 @@ map("", "s,", "<ESC>:w<CR>", {})
 map("", ",q", "<ESC>:bd<cr>", {})
 map("", "<c-q>", "<ESC>:qa<cr>", {})
 
-map("n", ";", ":", {})
+-- map("n", ";", ":", {})
 
 -- print current file path
 function PrintCurrentDirPath()
