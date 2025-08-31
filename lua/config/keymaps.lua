@@ -113,9 +113,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Define a global variable to track "safe mode"
+------------------------------------------------------------------------------
+-- my safe mode
+------------------------------------------------------------------------------
+
 vim.g.safe_mode = false
 
+-- Functions
 local function enable_safe_mode()
   vim.g.safe_mode = true
   -- Disable quitting with Ctrl+Q
@@ -130,9 +134,40 @@ local function disable_safe_mode()
   vim.keymap.set("i", "<C-q>", "<Esc>:q<CR>", { noremap = true, silent = true })
 end
 
--- Create commands to toggle
-vim.api.nvim_create_user_command("SafeModeOn", enable_safe_mode, {})
-vim.api.nvim_create_user_command("SafeModeOff", disable_safe_mode, {})
+local function toggle_safe_mode()
+  if vim.g.safe_mode then
+    disable_safe_mode()
+    vim.notify("Safe Mode OFF", vim.log.levels.INFO, { title = "Safe Mode" })
+  else
+    enable_safe_mode()
+    vim.notify("Safe Mode ON", vim.log.levels.INFO, { title = "Safe Mode" })
+  end
+end
 
--- Oil
+-- Commands
+vim.api.nvim_create_user_command("SafeModeOn", function()
+  enable_safe_mode()
+  vim.notify("Safe Mode ON", vim.log.levels.INFO, { title = "Safe Mode" })
+end, {})
+
+vim.api.nvim_create_user_command("SafeModeOff", function()
+  disable_safe_mode()
+  vim.notify("Safe Mode OFF", vim.log.levels.INFO, { title = "Safe Mode" })
+end, {})
+
+vim.api.nvim_create_user_command("SafeModeToggle", toggle_safe_mode, {})
+
+-- Toggle Keymap
+Snacks.toggle({
+  name = "Safe Mode",
+  get = function() return vim.g.safe_mode end,
+  set = function(state)
+    if state then enable_safe_mode() else disable_safe_mode() end
+  end,
+}):map("<leader>ux")
+
+------------------------------------------------------------------------------
+-- oil
+------------------------------------------------------------------------------
 vim.keymap.set("n", "oi", "<CMD>Oil<CR>", {desc = "Open Oil with file's current directory"})
+
