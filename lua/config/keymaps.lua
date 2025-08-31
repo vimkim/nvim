@@ -167,6 +167,24 @@ Snacks.toggle({
 }):map("<leader>ux")
 
 ------------------------------------------------------------------------------
+-- readonly & notmodifiable buffer toggle
+------------------------------------------------------------------------------
+
+vim.g.readonly_mode = false
+-- Hard read-only (sets 'nomodifiable')
+Snacks.toggle({
+    name = "Hard Read-Only (buffer)",
+    get = function()
+    return not vim.bo.modifiable
+    end,
+    set = function(state)
+    vim.bo.modifiable = not state
+    -- keep 'readonly' in sync to make intent obvious in statuslines
+    vim.bo.readonly = state
+    end,
+}):map("<leader>uR")
+
+------------------------------------------------------------------------------
 -- oil
 ------------------------------------------------------------------------------
 vim.keymap.set("n", "oi", "<CMD>Oil<CR>", {desc = "Open Oil with file's current directory"})
