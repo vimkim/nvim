@@ -10,7 +10,15 @@ return {
       },
     },
     config = function(_, opts)
-      require("litee.lib").setup(opts)
+      require("litee.lib").setup({
+        tree = {
+          icon_set = "codicons",
+        },
+        panel = {
+          orientation = "right",
+          panel_size = 30,
+        },
+      })
     end,
   },
 
