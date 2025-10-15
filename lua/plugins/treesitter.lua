@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
+    indent = { enable = false }, -- experimental, not work well
     ensure_installed = {
       "bash",
       "c",

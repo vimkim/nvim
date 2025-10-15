@@ -38,9 +38,9 @@ vim.g.netrw_browse_split = 0
 -- $HOME/temp/tcpdump-with-go/
 
 -- tabs
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4 -- Number of spaces for each step of indentation
-vim.opt.softtabstop = 4 -- Number of spaces a <Tab> counts for when editing
+-- vim.opt.tabstop = 4
+-- vim.opt.shiftwidth = 4 -- Number of spaces for each step of indentation
+-- vim.opt.softtabstop = 4 -- Number of spaces a <Tab> counts for when editing
 -- vim.opt.expandtab = true -- (default: true) Use spaces instead of tabs
 
 vim.api.nvim_create_autocmd("FileType", {
