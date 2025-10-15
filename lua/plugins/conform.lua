@@ -11,12 +11,18 @@ return {
         fish = { "fish_indent" },
         sh = { "shfmt" },
         zsh = { "beautysh" },
-        rst = { "rstfmt" },
         just = { "just" },
         c = { "clang_format" },
         -- markdown
-        markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
-        ["markdown.mdx"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
+        markdown = { "markdownlint-cli2", "markdown-toc" },
+        ["markdown.mdx"] = { "markdownlint-cli2", "markdown-toc" },
+        javascript = { "biome", "biome-organize-imports" },
+        javascriptreact = { "biome", "biome-organize-imports" },
+        typescript = { "biome", "biome-organize-imports" },
+        typescriptreact = { "biome", "biome-organize-imports" },
+        go = { "goimports", "gofmt" },
+        rst = { "rstfmt" },
+        rust = { "rustfmt", lsp_format = "fallback" },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.
