@@ -68,6 +68,15 @@ return {
             },
             ueberzug_scaler = "fit_contain",
           },
+          git_diff = {
+            -- if required, use `{file}` for argument positioning
+            -- e.g. `cmd_modified = "git diff --color HEAD {file} | cut -c -30"`
+            cmd_deleted = "git diff --color NVIM_HEAD {file}",
+            cmd_modified = "git diff --color NVIM_HEAD {file}",
+            cmd_untracked = "git diff --color --no-index /dev/null",
+            -- git-delta is automatically detected as pager, set `pager=false`
+            -- to disable, can also be set under 'git.status.preview_pager'
+          },
         },
         -- Custom LazyVim option to configure vim.ui.select
         ui_select = function(fzf_opts, items)
@@ -108,6 +117,29 @@ return {
           col = 0.5,
           preview = {
             scrollchars = { "┃", "" },
+          },
+        },
+        git = {
+          diff = {
+            cmd = "git --no-pager diff --name-only {ref}",
+            ref = "NVIM_HEAD",
+            preview = "git diff {ref} {file}",
+            -- git-delta is automatically detected as pager, uncomment to disable
+            -- preview_pager = false,
+            file_icons = true,
+            color_icons = true,
+            fzf_opts = { ["--multi"] = true },
+          },
+          hunks = {
+            cmd = "git --no-pager diff --color=always {ref}",
+            ref = "NVIM_HEAD",
+            file_icons = true,
+            color_icons = true,
+            fzf_opts = {
+              ["--multi"] = true,
+              ["--delimiter"] = ":",
+              ["--nth"] = "3..",
+            },
           },
         },
         files = {
