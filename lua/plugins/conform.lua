@@ -13,6 +13,7 @@ return {
         zsh = { "beautysh" },
         just = { "just" },
         c = { "clang_format" },
+        nu = { "nufmt" },
         -- markdown
         -- markdown = { "markdownlint-cli2", "markdown-toc" },
         -- ["markdown.mdx"] = { "markdownlint-cli2", "markdown-toc" },
