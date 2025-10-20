@@ -97,6 +97,13 @@ vim.api.nvim_set_keymap(
   { desc = "Lspsaga Outgoing Calls", noremap = true, silent = true }
 )
 
+-- ensure litee-calltree is installed
+-- https://github.com/ldelossa/litee-calltree.nvim
+-- installed and configured
+vim.keymap.set("n", "<leader>co", function()
+  vim.lsp.buf.outgoing_calls()
+end, { desc = "LSP: Outgoing Calls" })
+
 -- chezmoi add
 vim.api.nvim_set_keymap("n", "<leader>za", ":!chezmoi add %<CR>", { noremap = true, silent = true })
 

@@ -16,7 +16,7 @@ return {
         },
         panel = {
           orientation = "right",
-          panel_size = 30,
+          panel_size = 80,
         },
       })
     end,
@@ -29,6 +29,9 @@ return {
     opts = {
       on_open = "panel",
       map_resize_keys = false,
+      keymaps = {
+        outgoing_calls = "<space>co",
+      }
     },
     config = function(_, opts)
       require("litee.calltree").setup(opts)
