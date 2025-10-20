@@ -92,3 +92,5 @@ vim.g.snacks_animate = false
 -- refer to nvim-lspconfig.lua
 -- vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_lsp = "pylsp"
+
+vim.opt.spelllang = { 'en', 'cjk' }
