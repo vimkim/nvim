@@ -35,6 +35,10 @@ map("n", "gn", "n", {})
 map("n", "ge", "e", {})
 
 map("i", ",s", "<ESC>", {})
+
+-- insert mode save -> return to insert mode
+map("i", "<c-s>", "<ESC>:w<CR>a", {})
+
 map("", ",s", "<ESC>:w<CR>", {})
 map("", "s,", "<ESC>:w<CR>", {})
 map("", ",q", "<ESC>:bd<cr>", {})
