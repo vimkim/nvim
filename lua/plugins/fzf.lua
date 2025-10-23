@@ -67,6 +67,12 @@ return {
               ["webp"] = img_previewer,
             },
             ueberzug_scaler = "fit_contain",
+
+            -- My Edit to add treesitter context
+            treesitter = {
+              enable = true,
+              context = { max_lines = 10, trim_scope = "inner" },
+            }
           },
           git_diff = {
             -- if required, use `{file}` for argument positioning
