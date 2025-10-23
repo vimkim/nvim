@@ -14,6 +14,6 @@ return {
         end
       end,
     }):map("<leader>ut")
-    return { mode = "cursor", max_lines = 10 }
+    return { mode = "cursor", max_lines = 20 }
   end,
 }
