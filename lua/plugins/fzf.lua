@@ -72,7 +72,7 @@ return {
             treesitter = {
               enable = true,
               context = { max_lines = 10, trim_scope = "inner" },
-            }
+            },
           },
           git_diff = {
             -- if required, use `{file}` for argument positioning
@@ -185,6 +185,16 @@ return {
     end,
 
     keys = {
+      {
+        "<leader>ci",
+        "<cmd>FzfLua lsp_incoming_calls<CR>",
+        desc = "fzf lua incoming calls",
+      },
+      {
+        "go",
+        "<cmd>FzfLua lsp_outgoing_calls<CR>",
+        desc = "fzf lua outgoing calls",
+      },
       {
         "<leader>sf",
         function()
