@@ -137,7 +137,7 @@ return {
             fzf_opts = { ["--multi"] = true },
           },
           hunks = {
-            cmd = "git --no-pager diff --color=always {ref}",
+            cmd = "git --no-pager diff --color=always NVIM_HEAD",
             ref = "NVIM_HEAD",
             file_icons = true,
             color_icons = true,
