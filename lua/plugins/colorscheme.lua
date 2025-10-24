@@ -3,7 +3,8 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "catppuccin",
-      colorscheme = "catppuccin-frappe",
+      -- colorscheme = "catppuccin-frappe",
+      colorscheme = "catppuccin-macchiato",
     },
   },
   -- quick fix for get error caused by bufferline.nvim
