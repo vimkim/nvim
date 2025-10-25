@@ -13,7 +13,7 @@ return {
         zsh = { "beautysh" },
         just = { "just" },
         c = { "clang_format" },
-        nu = { "nufmt" },
+        nu = { "topiary_nu", "nufmt" },
         -- markdown
         -- markdown = { "markdownlint-cli2", "markdown-toc" },
         -- ["markdown.mdx"] = { "markdownlint-cli2", "markdown-toc" },
@@ -32,6 +32,10 @@ return {
       formatters = {
         injected = { options = { ignore_errors = true } },
 
+        topiary_nu = {
+          command = "topiary",
+          args = { "format", "--language", "nu" },
+        },
         -- markdown
         mdslw = { prepend_args = { "--stdin-filepath", "$FILENAME" } },
         ["markdown-toc"] = {
