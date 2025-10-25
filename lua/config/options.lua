@@ -86,7 +86,8 @@ vim.g.root_spec = {
 
 -- snacks animate disable
 -- refer to: https://github.com/folke/snacks.nvim/blob/main/docs/animate.md
-vim.g.snacks_animate = false
+-- 2025-10-25: enabing it helps when reading codes
+vim.g.snacks_animate = true
 
 -- pyright does not support features like auto-import.
 -- refer to nvim-lspconfig.lua
