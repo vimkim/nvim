@@ -204,4 +204,4 @@ Snacks.toggle({
 ------------------------------------------------------------------------------
 -- oil
 ------------------------------------------------------------------------------
-vim.keymap.set("n", "oi", "<CMD>Oil<CR>", { desc = "Open Oil with file's current directory" })
+vim.keymap.set("n", "<leader>oi", "<CMD>Oil<CR>", { desc = "Open Oil with file's current directory" })
