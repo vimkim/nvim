@@ -18,7 +18,7 @@ return {
         return LazyVim.config.icons.ft[opts.filetype]
       end,
       padding = 0,
-      max_name_length = 10,
+      max_name_length = 15,
       max_prefix_length = 6,
       truncate_names = true,
       -- optional numbers or pins:
