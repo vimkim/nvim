@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     options = {
-      mode = "tabs",
+      -- mode = "tabs",
       separator_style = "slant", -- "slant" | "thick" | "thin"
       show_buffer_close_icons = false,
       show_close_icon = false,
