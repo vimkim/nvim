@@ -14,6 +14,7 @@ return {
         just = { "just" },
         c = { "clang_format" },
         nu = { "topiary_nu", "nufmt" },
+        sql = { "sleek" },
         -- markdown
         -- markdown = { "markdownlint-cli2", "markdown-toc" },
         -- ["markdown.mdx"] = { "markdownlint-cli2", "markdown-toc" },
