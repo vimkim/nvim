@@ -91,9 +91,7 @@ vim.g.root_spec = {
 -- 2025-10-25: enabing it helps when reading codes
 vim.g.snacks_animate = true
 
--- pyright does not support features like auto-import.
--- refer to nvim-lspconfig.lua
--- vim.g.lazyvim_python_lsp = "pyright"
-vim.g.lazyvim_python_lsp = "pylsp"
+-- LazyVim's Python extra pairs Basedpyright with Ruff.
+vim.g.lazyvim_python_lsp = "basedpyright"
 
 vim.opt.spelllang = { 'en', 'cjk' }
