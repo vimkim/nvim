@@ -3,6 +3,13 @@ return {
 
   opts = {
     transparent_background = false,
+    color_overrides = {
+      mocha = {
+        base = "#000000",
+        mantle = "#000000",
+        crust = "#000000",
+      },
+    },
     lsp_styles = {
       underlines = {
         errors = { "undercurl" },
