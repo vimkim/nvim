@@ -9,6 +9,8 @@ return {
     local view = require("iron.view")
     local common = require("iron.fts.common")
 
+    local csql_repl = { command = { "csql.sh" } }
+
     iron.setup({
       config = {
         -- Whether a repl should be discarded or not
@@ -26,19 +28,14 @@ return {
             env = { PYTHON_BASIC_REPL = "1" }, -- needed for python3.13+
           },
 
-          -- csql (Cubrid) for SQL filetype
-          sql = {
-            -- adjust args for your environment: db name, user, etc.
-            -- e.g. { "csql", "your_db", "-u", "dba" }
-            command = { "csql.sh" },
-          },
+          sql = csql_repl,
+          cubrid = csql_repl,
         },
 
         -- set the file type of the newly created repl to ft
         -- bufnr is the buffer id of the REPL and ft is the filetype of the
         -- language being used for the REPL.
         repl_filetype = function(bufnr, ft)
-          -- sql files will use the "sql" repl_definition above
           return ft
         end,
 
